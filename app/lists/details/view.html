@@ -1,0 +1,38 @@
+<ion-view title="{{ shoppingList.name }}">
+
+  <ion-nav-buttons side="right">
+    <div class="buttons">
+      <button class="button" ui-sref="app.lists.edit({ listId: shoppingList.id })">edit</button>
+    </div>
+  </ion-nav-buttons>
+
+  <ion-content>
+
+    <div class="list list-inset">
+      <div class="item" ng-repeat="item in shoppingList.items track by $index">
+        {{ item.name }}
+      </div>
+    </div>
+
+    <div class="list list-inset" ng-show="shoppingList.sourceLocation || shoppingList.targetLocation">
+      <div class="item item-divider">
+        Location Options
+        <i class="icon ion-earth" style="float: right"></i>
+      </div>
+
+      <label class="item item-input" ng-show="shoppingList.sourceLocation">
+        {{ shoppingList.sourceLocation }}
+      </label>
+      <label class="item item-input" ng-show="shoppingList.targetLocation">
+        {{ shoppingList.targetLocation }}
+      </label>
+    </div>
+
+    <div class="padding-horizontal">
+      <button class="button button-clear icon-left ion-locked">
+        Publish and let others help you out.
+      </button>
+    </div>
+
+  </ion-content>
+</ion-view>

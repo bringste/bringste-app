@@ -1,0 +1,39 @@
+<div class="list list-inset">
+  <div class="item item-input">
+    <input type="text" placeholder="Name" ng-model="list.name" />
+  </div>
+</div>
+
+<div class="list list-inset">
+  <div class="item item-input" ng-repeat="item in list.items track by $index">
+    <input type="text" placeholder="+ Item" ng-model="item.name" ng-focus="focusItem(item)" />
+
+    <button class="button button-small button-clear icon ion-close-round"
+            ng-click="deleteItem(item)" tabindex="-1"></button>
+  </div>
+</div>
+
+<div class="list list-inset">
+  <div class="item item-divider" ng-click="showLocation = !showLocation">
+    Location Options
+    <i class="icon ion-earth" style="float: right"></i>
+  </div>
+
+  <label class="item item-input" ng-show="showLocation">
+    <input type="text" placeholder="From" ng-model="list.sourceLocation">
+  </label>
+  <label class="item item-input" ng-show="showLocation">
+    <input type="text" placeholder="To" ng-model="list.targetLocation">
+  </label>
+</div>
+
+<div class="list list-inset">
+  <div class="item item-divider" ng-click="showReward = !showReward">
+    Reward
+    <i class="icon ion-pricetags" style="float: right"></i>
+  </div>
+
+  <label class="item item-input" ng-show="showReward">
+    <input type="text" placeholder="From" ng-model="list.sourceLocation">
+  </label>
+</div>

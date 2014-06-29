@@ -1,0 +1,26 @@
+<ion-view title="Lists">
+
+  <ion-nav-buttons side="right">
+    <div class="buttons">
+      <button class="button button-clear icon ion-ios7-plus-outline" ui-sref="app.lists.new"></button>
+    </div>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <ion-refresher refreshing-icon="ion-loading-c" on-refresh="doRefresh()"></ion-refresher>
+
+    <div class="list list-inset" ng-repeat="item in items track by $index"
+                      ui-sref="app.lists.details({ listId: item.id })">
+      <div class="item item-text-wrap status-in-progress">
+        <p>
+          {{ item.name }}
+        </p>
+
+        <button class="button button-small button-clear icon-left ion-locked">
+          Published
+        </button>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
